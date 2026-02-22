@@ -3,9 +3,25 @@
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Homed</title>
+		<title>Home</title>
 	</head>
 	<body>
-		<h1>Index</h1>
+		<h1>Message Board</h1>
+            
+        <ul>
+            <%messages.forEach(message => { %>
+               <li><%-include('message', {message: message})%></li>
+           <% }); %>
+        </ul>
+
+        <form method="POST" action="/new">
+            <label for="message">
+                Your message: <input name="text" type="text" id="message">
+            </label>
+             <label for="by">
+                Your name: <input name="user" type="text" id="by">
+            </label>
+            <button type="submit">Submit</button>
+        </form> 
 	</body>
 </html>
